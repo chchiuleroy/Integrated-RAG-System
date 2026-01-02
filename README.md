@@ -52,12 +52,19 @@ Bash
 python integrated_rag_system_v1.py --search "您的問題"
 
 📊 系統架構圖 (流程簡述)
+
 PDF -> Markdown + VLM Image Captioning
+
 Chunking -> Semantic Split + Hypothetical Questions
+
 Indexing -> ChromaDB (Vector) + Neo4j (Graph)
+
 Query -> Multi-Query Transform -> Hybrid Search
+
 Rerank -> Confidence Scoring
+
 Evaluate -> If Low Score -> Web Search (CRAG)
+
 Final Answer -> LLM Generation
 
 --------------------------------------------------
@@ -117,9 +124,15 @@ python integrated_rag_system_v1.py --search "Your question here"
 
 📊 Workflow
 PDF Processing: Extract Markdown + VLM Image Captions.
+
 Augmentation: Generate Hypothetical Questions + Semantic Splitting.
+
 Indexing: Populate ChromaDB (Vectors) and Neo4j (Entities/Relations).
+
 Retrieval: Multi-Query Transform -> Hybrid Fusion Search.
+
 Refinement: Rerank candidates -> Evaluate Confidence.
+
 Correction: If confidence is low -> Perform Web Search (CRAG).
+
 Generation: Synthesize final answer using the best available context.
