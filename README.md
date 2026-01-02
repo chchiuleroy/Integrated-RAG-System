@@ -60,6 +60,7 @@ python integrated_rag_system_v1.py --ingest
 Bash
 
 python integrated_rag_system_v1.py --search "您的問題"
+
 📊 系統架構圖 (流程簡述)
 PDF -> Markdown + VLM Image Captioning
 
@@ -139,6 +140,7 @@ Search Mode: Query the system directly:
 Bash
 
 python integrated_rag_system_v1.py --search "Your question here"
+
 📊 Workflow
 PDF Processing: Extract Markdown + VLM Image Captions.
 
