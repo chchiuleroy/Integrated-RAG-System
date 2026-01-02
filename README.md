@@ -58,3 +58,67 @@ Query -> Multi-Query Transform -> Hybrid Search
 Rerank -> Confidence Scoring
 Evaluate -> If Low Score -> Web Search (CRAG)
 Final Answer -> LLM Generation
+
+--------------------------------------------------
+
+Integrated RAG System (Phase 1-3 Implementation)
+A sophisticated Retrieval-Augmented Generation (RAG) pipeline featuring Multi-modal Processing, Semantic Chunking, Hybrid Retrieval, Knowledge Graphs (GraphRAG), and Corrective Mechanisms (CRAG).
+
+🌟 Key Features & Technical Architecture
+1. Advanced Ingestion Pipeline
+Multi-modal PDF Parsing: Converts PDFs to Markdown using PyMuPDF4LLM and utilizes a Vision Language Model (VLM) to generate semantic descriptions for images and charts.
+Semantic Chunking: Instead of fixed-length splitting, the system determines breakpoints based on semantic similarity transitions in vector space.
+Small-to-Big Strategy: Indexes granular "Child" chunks for precise retrieval while maintaining "Parent" context for LLM synthesis.
+Knowledge Graph Extraction: Automatically extracts entities and relationships to build a Neo4j-based graph for relational reasoning.
+
+2. Powerful Retrieval Engine
+Hybrid Search (Fusion): Combines vector-based similarity (ChromaDB) with keyword-based filtering (BM25) using Reciprocal Rank Fusion.
+Query Transformation: Expands a single user query into multiple perspectives to improve document recall.
+Graph-Guided Retrieval: Performs 1~2 hop graph traversals to find relevant nodes that vector searches might miss.
+Two-Stage Re-ranking: Refines candidate lists using a Cross-Encoder Reranker for high-precision scoring.
+
+3. Corrective RAG (CRAG) & Web Search
+Self-Evaluation: Evaluates the confidence score of retrieved documents.
+External Augmentation: Triggers an automated DuckDuckGo web search when internal knowledge is insufficient or relevance scores are low.
+
+🛠️ Tech Stack
+Vector Database: ChromaDB
+Graph Database: Neo4j
+Embedding & Reranking: Sentence-Transformers (multilingual-mpnet, BGE-Reranker)
+Document Processing: PyMuPDF, pymupdf4llm
+Search API: DuckDuckGo Search
+
+🚀 Quick Start
+1. Installation
+Install the required dependencies:
+
+Bash
+pip install pymupdf pymupdf4llm chromadb rank_bm25 sentence-transformers neo4j duckduckgo-search jieba requests
+
+2. Configuration
+
+Update your Neo4j credentials in the Config class within integrated_rag_system_v1.py:
+
+Python
+NEO4J_URI = "bolt://localhost:7687"
+NEO4J_USER = "neo4j"
+NEO4J_PASSWORD = "your_password"
+
+3. Usage
+Ingestion Mode: Process PDFs in your local directory:
+
+Bash
+python integrated_rag_system_v1.py --ingest
+Search Mode: Query the system directly:
+
+Bash
+python integrated_rag_system_v1.py --search "Your question here"
+
+📊 Workflow
+PDF Processing: Extract Markdown + VLM Image Captions.
+Augmentation: Generate Hypothetical Questions + Semantic Splitting.
+Indexing: Populate ChromaDB (Vectors) and Neo4j (Entities/Relations).
+Retrieval: Multi-Query Transform -> Hybrid Fusion Search.
+Refinement: Rerank candidates -> Evaluate Confidence.
+Correction: If confidence is low -> Perform Web Search (CRAG).
+Generation: Synthesize final answer using the best available context.
