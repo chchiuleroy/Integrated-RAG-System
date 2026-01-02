@@ -1,8 +1,4 @@
 # -*- coding: utf-8 -*-
-"""
-Integrated RAG System (Phase 1-3 Implementation)
-整合：PDF處理(含VLM) + Small-to-Big + Fusion Retrieval + Rerank + GraphRAG + CRAG + Query Transform
-"""
 
 import os
 import json
@@ -30,8 +26,8 @@ from duckduckgo_search import DDGS
 
 class Config:
     # LLM & VLM API
-    TEXT_API_URL = "http://10.2.6.150:3000/api/v1/prediction/98317c50-906a-4656-8b23-b94847d02a91"
-    IMAGE_API_URL = "http://10.2.6.150:3000/api/v1/prediction/ad31badb-292b-4236-a148-1f1d123c7a3c"
+    TEXT_API_URL = ""
+    IMAGE_API_URL = ""
     
     # Paths
     BASE_DIR = "D:\\document"
@@ -559,5 +555,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
