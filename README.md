@@ -47,8 +47,11 @@ pip install pymupdf pymupdf4llm chromadb rank_bm25 sentence-transformers neo4j d
 Python
 
 NEO4J_URI = "bolt://localhost:7687"
+
 NEO4J_USER = "neo4j"
+
 NEO4J_PASSWORD = "your_password"
+
 3. 執行指令
 文件入庫 (Ingestion)：將 PDF 放入指定目錄並執行：
 
@@ -127,8 +130,11 @@ Update your Neo4j credentials in the Config class within integrated_rag_system_v
 Python
 
 NEO4J_URI = "bolt://localhost:7687"
+
 NEO4J_USER = "neo4j"
+
 NEO4J_PASSWORD = "your_password"
+
 3. Usage
 Ingestion Mode: Process PDFs in your local directory:
 
