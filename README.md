@@ -50,6 +50,7 @@ python integrated_rag_system_v1.py --ingest
 
 Bash
 python integrated_rag_system_v1.py --search "您的問題"
+
 📊 系統架構圖 (流程簡述)
 PDF -> Markdown + VLM Image Captioning
 Chunking -> Semantic Split + Hypothetical Questions
