@@ -1,3 +1,27 @@
+RAG Evolution V2: Graph-Guided Retrieval Optimization
+
+中文簡介
+
+V2 版本是本系統從基礎 RAG 邁向精準檢索的核心迭代。在此版本中，我們引入了「圖譜引導檢索」（Graph-Guided Retrieval）機制。透過預先定義的知識本體（Ontology），系統能在向量搜尋前，利用圖譜結構進行「硬過濾」（Hard Filtering），有效鎖定候選文本塊（Chunks）。
+
+這解決了純向量搜尋在大規模數據下容易產生的「語意漂移」問題，大幅提升了檢索的精確度（Precision）。此版本代表了結構化知識（Neo4j）與非結構化檢索（ChromaDB）的深度耦合，為複雜推理奠定了基礎。
+
+English Introduction
+
+Version 2 marks a pivotal iteration in our system's evolution from basic RAG to precision retrieval. In this version, we introduced the Graph-Guided Retrieval mechanism. By leveraging a predefined Ontology, the system performs "Hard Filtering" based on graph structures before executing vector searches, effectively narrowing down candidate Chunks.
+
+This approach mitigates the "Semantic Drift" commonly found in pure vector searches within large-scale datasets, significantly enhancing Retrieval Precision. This version represents the deep coupling of structured knowledge (Neo4j) with unstructured retrieval (ChromaDB), establishing a robust foundation for complex reasoning.
+
+Key Features / 核心特性
+
+Graph-Guided Filtering: Pre-filtering chunk IDs using entity relations.
+
+Hybrid RRF Enhancement: Optimized Fusion of Graph, Vector, and Lexical scores.
+
+Precision Focus: Minimized noise in the context window for LLMs.
+
+# ============================================== #
+
 Integrated RAG System (Phase 1-3 Implementation)
 這是一個高度整合的檢索增強生成 (RAG) 系統，結合了 多模態處理、語意切分、混合檢索、圖譜檢索 (GraphRAG) 以及 自我修正機制 (CRAG)。
 
